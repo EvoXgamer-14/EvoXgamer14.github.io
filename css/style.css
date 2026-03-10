@@ -1,10 +1,10 @@
 /* Tablets y phablets */
-@media only screen and (min-width: 576px) and (max-width: 767px){
+@media only screen and (min-width: 430px) and (max-width: 1024px){
 
 }
 
 /* Teléfonos */
-@media only screen and (max-width: 575px){
+@media only screen and (max-width: 430px){
 
 }
 
@@ -105,3 +105,4 @@ img {
     max-width: 500px; /* tamaño de las fotos */
 
 }
+
