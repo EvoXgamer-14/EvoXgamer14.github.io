@@ -1,0 +1,96 @@
+/* ====== ESTILO GENERAL ====== */
+body {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* ====== TITULO PRINCIPAL ====== */
+h1 {
+    text-align: center;
+    color: #00ff88;
+    font-size: 3rem;
+    margin-top: 30px;
+    text-shadow: 0 0 15px #00ff88, 0 0 30px #00ff88;
+}
+
+/* ====== TITULOS DE SECCION ====== */
+h2 {
+    color: #00ffcc;
+    text-align: center;
+    margin-top: 40px;
+    text-shadow: 0 0 10px #00ffcc;
+}
+
+/* ====== SECCIONES ====== */
+section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section:not(:last-child) {
+    border-bottom: 1px solid #1f1f1f;
+    padding-bottom: 30px;
+}
+
+/* ====== PARRAFOS ====== */
+p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* ====== IMAGENES ====== */
+img {
+    display: block;
+    max-width: 100%;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
+}
+
+/* Logo con animación */
+.logo {
+    width: 300px;
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 10px #00ffcc); }
+    to   { filter: drop-shadow(0 0 30px #00ffcc); }
+}
+
+/* ====== ICONOS DE REDES ====== */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    font-size: 45px;
+    transition: 0.3s ease;
+}
+
+/* Colores oficiales */
+.twitch i { color: #9146FF; }
+.youtube i { color: #FF0000; }
+.tiktok i { color: #69C9D0; }
+.instagram i { color: #E1306C; }
+
+/* Hover neón */
+.social-icons a:hover {
+    transform
+}
+.logo {
+    width: 250px; /* tamaño del logo */
+    animation: glow 3s infinite alternate;
+}
+
+.foto {
+    max-width: 500px; /* tamaño de las fotos */
+}
