@@ -1,37 +1,6 @@
-/* Tablets y phablets */
-@media only screen and (min-width: 430px) and (max-width: 1024px){
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    h2 {
-        font-size: 1.7rem;
-    }
-
-    p {
-        font-size: 1.05rem;
-    }
-
-    img {
-        max-width: 450px;
-    }
-
-    .logo {
-        width: 260px;
-    }
-
-    section {
-        padding: 15px;
-    }
-
-    .social-icons a {
-        font-size: 40px;
-    }
-}
 
 /* Teléfonos */
-@media only screen and (max-width: 430px){
+@media (max-width: 430px){
 
     h1 {
         font-size: 2rem;
@@ -158,5 +127,6 @@ img {
     max-width: 500px; /* tamaño de las fotos */
 
 }
+
 
 
