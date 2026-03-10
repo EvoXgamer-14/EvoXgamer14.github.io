@@ -43,18 +43,18 @@ body {
 /* ====== TITULO PRINCIPAL ====== */
 h1 {
     text-align: center;
-    color: #00ff88;
+    color: #00ff15;
     font-size: 3rem;
     margin-top: 30px;
-    text-shadow: 0 0 15px #00ff88, 0 0 30px #00ff88;
+    text-shadow: 0 0 15px #00ffdd, 0 0 30px #00ff88;
 }
 
 /* ====== TITULOS DE SECCION ====== */
 h2 {
-    color: #00ffcc;
+    color: #00ff55;
     text-align: center;
     margin-top: 40px;
-    text-shadow: 0 0 10px #00ffcc;
+    text-shadow: 0 0 10px #00ffdd;
 }
 
 /* ====== SECCIONES ====== */
@@ -81,7 +81,7 @@ img {
     max-width: 100%;
     margin: 20px auto;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
+    box-shadow: 0 0 20px rgba(0, 255, 106, 0.4);
 }
 
 /* Logo con animación */
@@ -91,8 +91,8 @@ img {
 }
 
 @keyframes glow {
-    from { filter: drop-shadow(0 0 10px #00ffcc); }
-    to   { filter: drop-shadow(0 0 30px #00ffcc); }
+    from { filter: drop-shadow(0 0 10px #00ffdd); }
+    to   { filter: drop-shadow(0 0 30px #eeff00); }
 }
 
 /* ====== ICONOS DE REDES ====== */
@@ -116,8 +116,9 @@ img {
 
 /* Hover neón */
 .social-icons a:hover {
-    transform
+    transform: scale(1.2);
 }
+
 .logo {
     width: 250px; /* tamaño del logo */
     animation: glow 3s infinite alternate;
@@ -128,5 +129,7 @@ img {
 
 }
 
-
+strong{
+    color: #00ff55;
+}
 
