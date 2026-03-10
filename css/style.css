@@ -1,3 +1,13 @@
+/* Tablets y phablets */
+@media only screen and (min-width: 576px) and (max-width: 767px){
+
+}
+
+/* Teléfonos */
+@media only screen and (max-width: 575px){
+
+}
+
 /* ====== ESTILO GENERAL ====== */
 body {
     background-color: #0a0a0a;
@@ -93,4 +103,5 @@ img {
 
 .foto {
     max-width: 500px; /* tamaño de las fotos */
+
 }
