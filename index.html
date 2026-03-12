@@ -9,22 +9,53 @@
     <title>Página Oficial The EvoX 17</title>
 </head>
 <body>
-    <header>
+  <div class="container">
+    <!-- barra lateral con enlaces fijos -->
+    <aside class="sidebar">
+      <nav>
+        <a href="#yo">Quién soy</a>
+        <a href="#geek">Mi lado geek</a>
+        <a href="#nombre">Explicando el nombre</a>
+        <a href="#logo">Explicando el logo</a>
+        <a href="#redes">Redes sociales</a>
+      </nav>
+      <!-- iconos sociales siempre visibles en el menú -->
+      <div class="social-icons sidebar-icons">
+        <a href="https://www.twitch.tv/the_evoX_17?sr=a" class="twitch" target="_blank" aria-label="twitch">
+          <i class="fa-brands fa-twitch"></i>
+        </a>
+        <a href="https://www.youtube.com/@The_EvoXgamer_17" class="youtube" target="_blank" aria-label="youtube">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+        <a href="https://www.tiktok.com/@the_evox_17?is_from_webapp=1&sender_device=pc" class="tiktok" target="_blank" aria-label="tiktok">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+        <a href="https://www.instagram.com/the_evox_17/" class="instagram" target="_blank" aria-label="instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
+    </aside>
+
+    <!-- contenido principal -->
+    <main class="content">
+      <header>
         <img src="imagenes/logo.png" alt="Logo EvoX" class="logo">
         <h1>The EvoX 17</h1>
-    </header>
-    <section id="yo">
+      </header>
+
+      <section id="yo">
         <h2>Quién soy</h2>
         <img src="imagenes/coche.png" alt="Coche deportivo" class="foto">
-    <p>Hola 😁 Soy Evo. Estoy empezando en el mundo de la creación de contenido y me apasiona todo lo relacionado con el motor, los coches y la conducción. </p>
-    <p>También tengo un lado muy geek: videojuegos, sagas míticas, universos de fantasía y todo ese contenido que nos hace desconectar. </p>
-    <p>Mis directos son chill, con charlas naturales, partidas relajadas y buen rollo.</p>
-    </section>
-    <section id="geek">
-    <h2>Mi lado geek</h2>
-    <img src="imagenes/armas.png" alt="Armas fantásticas" class="foto">
-    <p>Me encantan los videojuegos, la fantasía épica y las armas míticas...</p>
-</section>
+        <p>Hola 😁 Soy Evo. Estoy empezando en el mundo de la creación de contenido y me apasiona todo lo relacionado con el motor, los coches y la conducción. </p>
+        <p>También tengo un lado muy geek: videojuegos, sagas míticas, universos de fantasía y todo ese contenido que nos hace desconectar. </p>
+        <p>Mis directos son chill, con charlas naturales, partidas relajadas y buen rollo.</p>
+      </section>
+
+      <section id="geek">
+        <h2>Mi lado geek</h2>
+        <img src="imagenes/armas.png" alt="Armas fantásticas" class="foto">
+        <p>Me encantan los videojuegos, la fantasía épica y las armas míticas...</p>
+      </section>
 
     <section id="nombre">
         <h2>Explicando el nombre</h2>
@@ -70,6 +101,7 @@
 
 
     </section>
+    </main>
+  </div>
 </body>
-
 </html>

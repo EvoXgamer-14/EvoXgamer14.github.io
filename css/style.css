@@ -1,60 +1,45 @@
-
-/* Teléfonos */
-@media (max-width: 430px){
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.4rem;
-    }
-
-    p {
-        font-size: 1rem;
-    }
-
-    img {
-        max-width: 320px;
-    }
-
-    .logo {
-        width: 220px;
-    }
-
-    section {
-        padding: 10px;
-    }
-
-    .social-icons a {
-        font-size: 35px;
-    }
-}
 /* ====== ESTILO GENERAL ====== */
 body {
-    background-color: #0a0a0a;
-    color: #e0e0e0;
+    /* fondo negro con toques neón naranja y morado a máxima intensidad */
+    background-color: #000;
+    background-image: 
+        radial-gradient(ellipse 800px 400px at 50% 10%, rgba(255, 102, 0, 0.15), transparent),
+        radial-gradient(ellipse 600px 300px at 50% 90%, rgba(153, 51, 255, 0.15), transparent);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #ccc; /* texto ligeramente menos brillante */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    overflow-x: hidden; /* evitar desplazamiento lateral */
+    position: relative;
 }
+
+
 
 /* ====== TITULO PRINCIPAL ====== */
 h1 {
     text-align: center;
-    color: #00ff15;
+    color: #39ff14; /* verde neón brillante */
     font-size: 3rem;
     margin-top: 30px;
-    text-shadow: 0 0 15px #00ffdd, 0 0 30px #00ff88;
+    text-shadow: 0 0 15px #39ff14, 0 0 30px #39ff14;
 }
 
 /* ====== TITULOS DE SECCION ====== */
 h2 {
-    color: #00ff55;
+    color: #00ffd5; /* cian-menta suave */
     text-align: center;
     margin-top: 40px;
-    text-shadow: 0 0 10px #00ffdd;
+    text-shadow: 0 0 10px #00ffd5;
+}
+
+/* resaltado de textos fuertes */
+strong {
+    color: #ccff33; /* amarillo verdoso neón */
+    text-shadow: 0 0 5px #ccff33;
 }
 
 /* ====== SECCIONES ====== */
@@ -75,13 +60,72 @@ p {
     margin-bottom: 15px;
 }
 
+/* ====== DISEÑO DE DOS COLUMNAS ====== */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Barra lateral fija para los enlaces */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100%;
+    background-color: #080808; /* casi negro con toque verde */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,255,0,0.4);
+    overflow-y: auto;
+}
+
+/* Contenido principal ajustado al ancho de la barra lateral */
+.content {
+    margin-left: 240px; /* ancho de sidebar + algo de margen */
+    padding: 20px;
+    flex: 1;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    /* evitar scroll horizontal por imágenes grandes */
+    .foto {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        box-sizing: border-box; /* tener en cuenta padding/margen */
+    }
+
+    /* reducir los iconos laterales para móviles */
+    .sidebar-icons a {
+        font-size: 28px;
+    }
+}
+
 /* ====== IMAGENES ====== */
 img {
     display: block;
     max-width: 100%;
+    width: auto;
     margin: 20px auto;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 255, 106, 0.4);
+    box-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
+    box-sizing: border-box;
 }
 
 /* Logo con animación */
@@ -91,8 +135,8 @@ img {
 }
 
 @keyframes glow {
-    from { filter: drop-shadow(0 0 10px #00ffdd); }
-    to   { filter: drop-shadow(0 0 30px #eeff00); }
+    from { filter: drop-shadow(0 0 10px #39ff14); }
+    to   { filter: drop-shadow(0 0 30px #39ff14); }
 }
 
 /* ====== ICONOS DE REDES ====== */
@@ -101,6 +145,40 @@ img {
     justify-content: center;
     gap: 25px;
     margin-top: 20px;
+}
+
+/* ====== ESTILO DE ENLACES EN LA BARRA LATERAL ====== */
+.sidebar a {
+    display: block;
+    color: #e0e0e0;
+    text-decoration: none;
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+/* iconos sociales dentro de la barra lateral */
+.sidebar-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.sidebar-icons a {
+    font-size: 32px;
+    color: inherit; /* hereda color de enlaces normales */
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.sidebar-icons a:hover {
+    transform: scale(1.2);
+}
+
+.sidebar a:hover {
+    background: #222;
 }
 
 .social-icons a {
@@ -116,9 +194,9 @@ img {
 
 /* Hover neón */
 .social-icons a:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 5px #39ff14);
 }
-
 .logo {
     width: 250px; /* tamaño del logo */
     animation: glow 3s infinite alternate;
@@ -126,10 +204,4 @@ img {
 
 .foto {
     max-width: 500px; /* tamaño de las fotos */
-
 }
-
-strong{
-    color: #00ff55;
-}
-
