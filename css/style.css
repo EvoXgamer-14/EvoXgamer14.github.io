@@ -1,153 +1,87 @@
-/* ====== ESTILO GENERAL ====== */
+/* ===========================
+   TIPOGRAFÍA Y ESTILO GLOBAL
+=========================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
 body {
-    /* fondo negro con toques neón naranja y morado a máxima intensidad */
+    font-family: 'Poppins', sans-serif;
     background-color: #000;
-    background-image: 
+    background-image:
         radial-gradient(ellipse 800px 400px at 50% 10%, rgba(255, 102, 0, 0.15), transparent),
         radial-gradient(ellipse 600px 300px at 50% 90%, rgba(153, 51, 255, 0.15), transparent);
-    background-size: cover;
-    background-position: center;
     background-attachment: fixed;
-    color: #ccc; /* texto ligeramente menos brillante */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ccc;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    overflow-x: hidden; /* evitar desplazamiento lateral */
-    position: relative;
+    overflow-x: hidden;
 }
 
-
-
-/* ====== TITULO PRINCIPAL ====== */
+/* ===========================
+   TITULOS
+=========================== */
 h1 {
     text-align: center;
-    color: #39ff14; /* verde neón brillante */
+    color: #39ff14;
     font-size: 3rem;
     margin-top: 30px;
-    text-shadow: 0 0 15px #39ff14, 0 0 30px #39ff14;
+    text-shadow: 0 0 12px #39ff14, 0 0 25px rgba(57,255,20,0.7);
 }
 
-/* ====== TITULOS DE SECCION ====== */
 h2 {
-    color: #00ffd5; /* cian-menta suave */
     text-align: center;
+    color: #00ffd5;
     margin-top: 40px;
-    text-shadow: 0 0 10px #00ffd5;
+    text-shadow: 0 0 10px rgba(0,255,213,0.7);
 }
 
-/* resaltado de textos fuertes */
 strong {
-    color: #ccff33; /* amarillo verdoso neón */
-    text-shadow: 0 0 5px #ccff33;
+    color: #ccff33;
+    text-shadow: 0 0 6px rgba(204,255,51,0.8);
 }
 
-/* ====== SECCIONES ====== */
+/* ===========================
+   SECCIONES
+=========================== */
 section {
     max-width: 900px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 25px 20px;
 }
 
 section:not(:last-child) {
     border-bottom: 1px solid #1f1f1f;
-    padding-bottom: 30px;
+    padding-bottom: 35px;
 }
 
-/* ====== PARRAFOS ====== */
 p {
     font-size: 1.1rem;
     margin-bottom: 15px;
 }
 
-/* ====== DISEÑO DE DOS COLUMNAS ====== */
+/* ===========================
+   LAYOUT GENERAL
+=========================== */
 .container {
     display: flex;
     min-height: 100vh;
 }
 
-/* Barra lateral fija para los enlaces */
+/* ===========================
+   SIDEBAR
+=========================== */
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     width: 220px;
     height: 100%;
-    background-color: #080808; /* casi negro con toque verde */
+    background-color: #080808;
     padding: 20px;
-    box-shadow: 2px 0 5px rgba(0,255,0,0.4);
+    box-shadow: 2px 0 8px rgba(0,255,0,0.35);
     overflow-y: auto;
 }
 
-/* Contenido principal ajustado al ancho de la barra lateral */
-.content {
-    margin-left: 240px; /* ancho de sidebar + algo de margen */
-    padding: 20px;
-    flex: 1;
-}
-
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        box-shadow: none;
-    }
-
-    .content {
-        margin-left: 0;
-    }
-
-    /* evitar scroll horizontal por imágenes grandes */
-    .foto {
-        max-width: 100%;
-        width: 100%;
-        height: auto;
-        box-sizing: border-box; /* tener en cuenta padding/margen */
-    }
-
-    /* reducir los iconos laterales para móviles */
-    .sidebar-icons a {
-        font-size: 28px;
-    }
-}
-
-/* ====== IMAGENES ====== */
-img {
-    display: block;
-    max-width: 100%;
-    width: auto;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
-    box-sizing: border-box;
-}
-
-/* Logo con animación */
-.logo {
-    width: 300px;
-    animation: glow 3s infinite alternate;
-}
-
-@keyframes glow {
-    from { filter: drop-shadow(0 0 10px #39ff14); }
-    to   { filter: drop-shadow(0 0 30px #39ff14); }
-}
-
-/* ====== ICONOS DE REDES ====== */
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 20px;
-}
-
-/* ====== ESTILO DE ENLACES EN LA BARRA LATERAL ====== */
 .sidebar a {
     display: block;
     color: #e0e0e0;
@@ -155,10 +89,15 @@ img {
     margin: 10px 0;
     padding: 8px;
     border-radius: 4px;
-    transition: background 0.2s;
+    transition: 0.2s ease;
 }
 
-/* iconos sociales dentro de la barra lateral */
+.sidebar a:hover {
+    background: #111;
+    color: #39ff14;
+}
+
+/* ICONOS DE LA SIDEBAR */
 .sidebar-icons {
     display: flex;
     flex-direction: column;
@@ -167,23 +106,69 @@ img {
 }
 
 .sidebar-icons a {
-    font-size: 32px;
-    color: inherit; /* hereda color de enlaces normales */
-    text-align: center;
-    transition: transform 0.2s;
+    font-size: 28px;
+    color: #e0e0e0;
+    transition: 0.2s ease;
 }
 
 .sidebar-icons a:hover {
-    transform: scale(1.2);
+    transform: scale(1.15);
+    color: #39ff14;
 }
 
-.sidebar a:hover {
-    background: #222;
+/* ===========================
+   CONTENIDO PRINCIPAL
+=========================== */
+.content {
+    margin-left: 240px;
+    padding: 20px;
+    flex: 1;
+}
+
+/* ===========================
+   IMÁGENES
+=========================== */
+img {
+    display: block;
+    max-width: 100%;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 3px solid #00ffd5;
+    box-shadow: 0 0 18px rgba(0,255,213,0.45);
+}
+
+.logo {
+    width: 250px;
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 12px #39ff14); }
+    to   { filter: drop-shadow(0 0 28px #39ff14); }
+}
+
+.foto {
+    max-width: 500px;
+}
+
+/* ===========================
+   ICONOS SOCIALES (SECCIÓN)
+=========================== */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
 }
 
 .social-icons a {
     font-size: 45px;
     transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 6px #39ff14);
 }
 
 /* Colores oficiales */
@@ -192,16 +177,108 @@ img {
 .tiktok i { color: #69C9D0; }
 .instagram i { color: #E1306C; }
 
-/* Hover neón */
-.social-icons a:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 5px #39ff14);
-}
-.logo {
-    width: 250px; /* tamaño del logo */
-    animation: glow 3s infinite alternate;
+/* ===========================
+   CTA Y FRASE
+=========================== */
+.cta {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #39ff14;
+    text-shadow: 0 0 10px rgba(57,255,20,0.7);
 }
 
-.foto {
-    max-width: 500px; /* tamaño de las fotos */
+.intro {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+/* ===========================
+   BOTONES PRINCIPALES
+=========================== */
+.botones-principales {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 2px solid #00ffd5;
+    box-shadow: 0 0 15px rgba(0,255,213,0.45);
+    transition: 0.3s ease;
+}
+
+.btn-youtube { background-color: #FF0000; }
+.btn-twitch { background-color: #9146FF; }
+
+.btn:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 22px rgba(0,255,213,0.7);
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: #888;
+    font-size: 0.9rem;
+    border-top: 1px solid #1f1f1f;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+        box-shadow: 0 2px 8px rgba(0,255,0,0.35);
+        z-index: 999;
+    }
+
+    .sidebar nav {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .sidebar a {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+
+    .sidebar-icons {
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 20px !important;
+        margin-top: 10px !important;
+    }
+
+    .sidebar-icons a {
+        font-size: 26px !important;
+    }
+
+    .content {
+        margin-left: 0;
+        margin-top: 140px;
+    }
 }
