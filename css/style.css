@@ -34,7 +34,13 @@ h2 {
     margin-top: 40px;
     text-shadow: 0 0 10px rgba(0,255,213,0.7);
 }
+h3 {
+      color: #ccff33;
+    text-shadow: 0 0 10px #ccff33;
+    text-align: center;
+    margin-bottom: 15px;
 
+}
 strong {
     color: #ccff33;
     text-shadow: 0 0 6px rgba(204,255,51,0.8);
@@ -58,6 +64,40 @@ p {
     font-size: 1.1rem;
     margin-bottom: 15px;
 }
+
+a {
+    color: #39ff14;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #00ffd5;
+}
+
+/* ===========================
+   TABLAS
+=========================== */
+#horario th {
+    color: #39ff14;
+    padding: 10px;
+    border-bottom: 2px solid #ccff33;
+    text-shadow: 0 0 5px #39ff14;
+}
+
+/* Filas */
+#horario td {
+    padding: 10px;
+    border-bottom: 1px solid #00ffd5;
+}
+
+/* Hover neón */
+#horario tr:hover {
+    background: rgba(0, 255, 180, 0.08);
+    box-shadow: inset 0 0 10px rgba(0, 255, 180, 0.3);
+    transition: 0.2s ease-in-out;
+    color: #ccff33;
+}
+
 
 /* ===========================
    LAYOUT GENERAL
