@@ -1,324 +1,764 @@
-/* ===========================
-   TIPOGRAFÍA Y ESTILO GLOBAL
-=========================== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+/* ========================================================
+   THE EVOX 17 — DESIGN SYSTEM v2.0
+   Paleta: Verde Neón · Azul Neón · Azul Oscuro · Lima Neón · Amarillo Eléctrico
+   Estética: Futurista · PCB · Gamer · Motor
+======================================================== */
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #000;
-    background-image:
-        radial-gradient(ellipse 800px 400px at 50% 10%, rgba(255, 102, 0, 0.15), transparent),
-        radial-gradient(ellipse 600px 300px at 50% 90%, rgba(153, 51, 255, 0.15), transparent);
-    background-attachment: fixed;
-    color: #ccc;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap");
+
+/* ── 1. DESIGN TOKENS ─────────────────────────────────── */
+:root {
+    /* Primario — Verde Neón */
+    --c-green: #39ff14;
+    --c-green-dim: #25bb0d;
+    --rgba-green-60: rgba(57, 255, 20, 0.6);
+    --rgba-green-25: rgba(57, 255, 20, 0.25);
+    --rgba-green-12: rgba(57, 255, 20, 0.12);
+    --rgba-green-07: rgba(57, 255, 20, 0.07);
+
+    /* Secundario — Azul Neón */
+    --c-blue: #00cfff;
+    --c-blue-dim: #009ec4;
+    --rgba-blue-60: rgba(0, 207, 255, 0.6);
+    --rgba-blue-25: rgba(0, 207, 255, 0.25);
+    --rgba-blue-12: rgba(0, 207, 255, 0.12);
+
+    /* Secundario — Azul Oscuro */
+    --c-blue-dark: #0038c8;
+    --c-blue-dark-dim: #002899;
+    --rgba-darkblue-60: rgba(0, 56, 200, 0.6);
+    --rgba-darkblue-25: rgba(0, 56, 200, 0.25);
+    --rgba-darkblue-12: rgba(0, 56, 200, 0.12);
+
+    /* Secundario — Verde/Amarillo Neón (Lima) */
+    --c-lime: #aaff00;
+    --c-lime-dim: #88cc00;
+    --rgba-lime-60: rgba(170, 255, 0, 0.6);
+    --rgba-lime-25: rgba(170, 255, 0, 0.25);
+    --rgba-lime-12: rgba(170, 255, 0, 0.12);
+
+    /* Acento — Amarillo Eléctrico */
+    --c-yellow: #ffe600;
+    --c-yellow-dim: #ccb800;
+    --rgba-yellow-60: rgba(255, 230, 0, 0.6);
+    --rgba-yellow-25: rgba(255, 230, 0, 0.25);
+
+    /* Fondos */
+    --bg-base: #03030a;
+    --bg-surface: #08081a;
+    --bg-card: #0c0c22;
+    --bg-sidebar: #060614;
+    --bg-glass: rgba(8, 8, 26, 0.8);
+
+    /* Texto */
+    --txt-primary: #e8e8f2;
+    --txt-secondary: #9090b0;
+    --txt-muted: #52526a;
+    --txt-on-accent: #000000;
+
+    /* Bordes */
+    --border-faint: rgba(57, 255, 20, 0.1);
+    --border-mid: rgba(0, 207, 255, 0.28);
+    --border-glow: rgba(57, 255, 20, 0.55);
+
+    /* Sombras compuestas */
+    --shadow-green: 0 0 8px var(--rgba-green-60), 0 0 28px var(--rgba-green-25);
+    --shadow-blue: 0 0 8px var(--rgba-blue-60), 0 0 28px var(--rgba-blue-25);
+    --shadow-darkblue:
+        0 0 8px var(--rgba-darkblue-60), 0 0 28px var(--rgba-darkblue-25);
+    --shadow-lime: 0 0 8px var(--rgba-lime-60), 0 0 28px var(--rgba-lime-25);
+    --shadow-yellow:
+        0 0 8px var(--rgba-yellow-60), 0 0 28px var(--rgba-yellow-25);
+
+    /* Layout */
+    --sidebar-w: 220px;
+    --content-max: 880px;
+    --radius: 10px;
+    --radius-sm: 6px;
+
+    /* Transiciones */
+    --t-fast: 0.2s ease;
+    --t-mid: 0.3s ease;
+    --t-slide: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── 2. RESET & BASE ──────────────────────────────────── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--bg-base);
+    color: var(--txt-primary);
+    line-height: 1.68;
     overflow-x: hidden;
 }
 
-/* ===========================
-   TITULOS
-=========================== */
+/* Efecto scan-line sutil — estética de pantalla tech */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0, 0, 0, 0.025) 3px,
+        rgba(0, 0, 0, 0.025) 4px
+    );
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* ── 3. CANVAS DE CIRCUITOS (FONDO) ──────────────────── */
+#circuit-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ── 4. TIPOGRAFÍA ────────────────────────────────────── */
 h1 {
+    font-family: "Orbitron", sans-serif;
     text-align: center;
-    color: #39ff14;
-    font-size: 3rem;
-    margin-top: 30px;
-    text-shadow: 0 0 12px #39ff14, 0 0 25px rgba(57,255,20,0.7);
+    color: var(--c-green);
+    font-size: clamp(1.9rem, 5vw, 3rem);
+    font-weight: 900;
+    margin-top: 22px;
+    letter-spacing: 0.05em;
+    text-shadow:
+        0 0 12px var(--c-green),
+        0 0 32px var(--rgba-green-60),
+        0 0 64px var(--rgba-green-25);
 }
 
 h2 {
+    font-family: "Orbitron", sans-serif;
+    color: var(--c-blue);
     text-align: center;
-    color: #00ffd5;
-    margin-top: 40px;
-    text-shadow: 0 0 10px rgba(0,255,213,0.7);
+    font-size: clamp(1.15rem, 3vw, 1.65rem);
+    font-weight: 700;
+    margin-top: 32px;
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 12px var(--rgba-blue-60);
 }
+
 h3 {
-      color: #ccff33;
-    text-shadow: 0 0 10px #ccff33;
+    font-family: "Orbitron", sans-serif;
+    color: var(--c-yellow);
+    font-size: 1rem;
+    text-shadow: 0 0 10px var(--rgba-yellow-60);
     text-align: center;
-    margin-bottom: 15px;
-
+    margin-bottom: 16px;
+    letter-spacing: 0.06em;
 }
+
 strong {
-    color: #ccff33;
-    text-shadow: 0 0 6px rgba(204,255,51,0.8);
+    color: var(--c-yellow);
+    text-shadow: 0 0 6px var(--rgba-yellow-60);
 }
 
-/* ===========================
-   SECCIONES
-=========================== */
-section {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 25px 20px;
-}
-
-section:not(:last-child) {
-    border-bottom: 1px solid #1f1f1f;
-    padding-bottom: 35px;
+em {
+    color: var(--c-blue);
+    font-style: normal;
 }
 
 p {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
+    font-size: 1.05rem;
+    margin-bottom: 14px;
+    color: var(--txt-primary);
 }
 
 a {
-    color: #39ff14;
+    color: var(--c-green);
     text-decoration: underline;
+    transition: color var(--t-fast);
 }
 
 a:hover {
-    color: #00ffd5;
+    color: var(--c-blue);
 }
 
-/* ===========================
-   TABLAS
-=========================== */
-#horario th {
-    color: #39ff14;
-    padding: 10px;
-    border-bottom: 2px solid #ccff33;
-    text-shadow: 0 0 5px #39ff14;
-}
-
-/* Filas */
-#horario td {
-    padding: 10px;
-    border-bottom: 1px solid #00ffd5;
-}
-
-/* Hover neón */
-#horario tr:hover {
-    background: rgba(0, 255, 180, 0.08);
-    box-shadow: inset 0 0 10px rgba(0, 255, 180, 0.3);
-    transition: 0.2s ease-in-out;
-    color: #ccff33;
-}
-
-
-/* ===========================
-   LAYOUT GENERAL
-=========================== */
+/* ── 5. LAYOUT PRINCIPAL ──────────────────────────────── */
 .container {
     display: flex;
     min-height: 100vh;
 }
 
-/* ===========================
-   SIDEBAR
-=========================== */
+/* ── 6. SIDEBAR ───────────────────────────────────────── */
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 220px;
+    width: var(--sidebar-w);
     height: 100%;
-    background-color: #080808;
-    padding: 20px;
-    box-shadow: 2px 0 8px rgba(0,255,0,0.35);
+    background: linear-gradient(
+        170deg,
+        var(--bg-sidebar) 0%,
+        rgba(4, 4, 16, 0.97) 100%
+    );
+    border-right: 1px solid var(--border-faint);
+    box-shadow:
+        2px 0 20px var(--rgba-green-12),
+        inset -1px 0 0 var(--rgba-blue-12);
+    padding: 24px 14px 20px;
     overflow-y: auto;
+    z-index: 800;
+    transition: transform var(--t-slide);
 }
 
-.sidebar a {
+/* Marca en la parte superior del sidebar */
+.sidebar::before {
+    content: "THE EVOX 17";
     display: block;
-    color: #e0e0e0;
+    font-family: "Orbitron", sans-serif;
+    color: var(--c-green);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    text-shadow: var(--shadow-green);
+    text-align: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border-faint);
+    margin-bottom: 18px;
+}
+
+.sidebar nav a {
+    display: block;
+    color: var(--txt-secondary);
     text-decoration: none;
-    margin: 10px 0;
-    padding: 8px;
-    border-radius: 4px;
-    transition: 0.2s ease;
+    margin: 3px 0;
+    padding: 9px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    border: 1px solid transparent;
+    transition: all var(--t-fast);
+    position: relative;
 }
 
-.sidebar a:hover {
-    background: #111;
-    color: #39ff14;
+.sidebar nav a::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%) scaleY(0);
+    width: 2px;
+    height: 60%;
+    background: var(--c-green);
+    border-radius: 2px;
+    box-shadow: 0 0 6px var(--c-green);
+    transition: transform var(--t-fast);
 }
 
-/* ICONOS DE LA SIDEBAR */
+.sidebar nav a:hover {
+    background: var(--rgba-green-07);
+    border-color: var(--border-faint);
+    color: var(--c-green);
+    text-shadow: 0 0 6px var(--rgba-green-60);
+    padding-left: 20px;
+}
+
+.sidebar nav a:hover::before {
+    transform: translateY(-50%) scaleY(1);
+}
+
+/* Iconos sociales del sidebar */
 .sidebar-icons {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-top: 30px;
+    gap: 12px;
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-faint);
 }
 
 .sidebar-icons a {
-    font-size: 28px;
-    color: #e0e0e0;
-    transition: 0.2s ease;
+    font-size: 24px;
+    color: var(--txt-secondary);
+    text-decoration: none;
+    text-align: center;
+    padding: 6px;
+    border-radius: var(--radius-sm);
+    transition: all var(--t-fast);
 }
 
 .sidebar-icons a:hover {
-    transform: scale(1.15);
-    color: #39ff14;
+    transform: scale(1.15) translateX(3px);
+    background: var(--rgba-green-07);
 }
 
-/* ===========================
-   CONTENIDO PRINCIPAL
-=========================== */
+/* ── 7. CONTENIDO PRINCIPAL ───────────────────────────── */
 .content {
-    margin-left: 240px;
-    padding: 20px;
+    margin-left: var(--sidebar-w);
+    padding: 20px 28px;
     flex: 1;
+    position: relative;
+    z-index: 1;
 }
 
-/* ===========================
-   IMÁGENES
-=========================== */
+/* ── 8. SECCIONES ─────────────────────────────────────── */
+section {
+    max-width: var(--content-max);
+    margin: 0 auto 24px;
+    padding: 28px 26px;
+    background: var(--bg-glass);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-faint);
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 var(--rgba-green-07);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Línea decorativa superior en las secciones */
+section::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--c-green), var(--c-blue));
+    border-radius: 2px;
+    margin: 0 auto 4px;
+    box-shadow: var(--shadow-green);
+}
+
+/* Excepción: sección inicio no tiene línea decorativa */
+#inicio::before {
+    display: none;
+}
+
+/* ── 9. HEADER DE INICIO ──────────────────────────────── */
+header {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+/* ── 10. IMÁGENES ─────────────────────────────────────── */
 img {
     display: block;
     max-width: 100%;
     margin: 20px auto;
-    border-radius: 10px;
-    border: 3px solid #00ffd5;
-    box-shadow: 0 0 18px rgba(0,255,213,0.45);
+    border-radius: var(--radius);
+    border: 2px solid var(--c-blue);
+    box-shadow: var(--shadow-blue);
 }
 
 .logo {
-    width: 250px;
-    animation: glow 3s infinite alternate;
+    width: 210px;
+    border: none;
+    box-shadow: none;
+    filter: drop-shadow(0 0 10px var(--c-green));
+    animation: logoGlow 3s ease-in-out infinite alternate;
 }
 
-@keyframes glow {
-    from { filter: drop-shadow(0 0 12px #39ff14); }
-    to   { filter: drop-shadow(0 0 28px #39ff14); }
+@keyframes logoGlow {
+    from {
+        filter: drop-shadow(0 0 10px var(--c-green))
+            drop-shadow(0 0 20px var(--rgba-green-25));
+    }
+    to {
+        filter: drop-shadow(0 0 24px var(--c-green))
+            drop-shadow(0 0 50px var(--rgba-green-60))
+            drop-shadow(0 0 80px var(--rgba-green-25));
+    }
 }
 
 .foto {
-    max-width: 500px;
+    max-width: 480px;
+    border-color: var(--c-lime);
+    box-shadow: var(--shadow-lime);
 }
 
-/* ===========================
-   ICONOS SOCIALES (SECCIÓN)
-=========================== */
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.social-icons a {
-    font-size: 45px;
-    transition: 0.3s ease;
-}
-
-.social-icons a:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 6px #39ff14);
-}
-
-/* Colores oficiales */
-.twitch i { color: #9146FF; }
-.youtube i { color: #FF0000; }
-.tiktok i { color: #69C9D0; }
-.instagram i { color: #E1306C; }
-
-/* ===========================
-   CTA Y FRASE
-=========================== */
+/* ── 11. CTA Y FRASES ─────────────────────────────────── */
 .cta {
     text-align: center;
-    font-size: 1.2rem;
-    margin-top: 10px;
-    color: #39ff14;
-    text-shadow: 0 0 10px rgba(57,255,20,0.7);
+    font-size: 1.15rem;
+    margin-top: 12px;
+    color: var(--c-green);
+    text-shadow: 0 0 10px var(--rgba-green-60);
 }
 
 .intro {
     text-align: center;
-    font-size: 1.1rem;
-    margin-top: 5px;
+    font-size: 1rem;
+    color: var(--txt-secondary);
+    margin-top: 6px;
 }
 
-/* ===========================
-   BOTONES PRINCIPALES
-=========================== */
+/* ── 12. BOTONES PRINCIPALES ──────────────────────────── */
 .botones-principales {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin: 20px 0;
+    gap: 14px;
+    margin: 22px 0;
     flex-wrap: wrap;
 }
 
 .btn {
-    padding: 10px 20px;
+    display: inline-block;
+    padding: 11px 24px;
     border-radius: 8px;
     text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    font-size: 1rem;
-    border: 2px solid #00ffd5;
-    box-shadow: 0 0 15px rgba(0,255,213,0.45);
-    transition: 0.3s ease;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 2px solid transparent;
+    transition:
+        transform var(--t-fast),
+        box-shadow var(--t-fast),
+        filter var(--t-fast);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.02em;
 }
 
-.btn-youtube { background-color: #FF0000; }
-.btn-twitch { background-color: #9146FF; }
+.btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.07);
+    opacity: 0;
+    transition: opacity var(--t-fast);
+}
 
 .btn:hover {
-    transform: scale(1.06);
-    box-shadow: 0 0 22px rgba(0,255,213,0.7);
+    transform: scale(1.05) translateY(-2px);
+    color: #ffffff;
 }
 
-/* ===========================
-   FOOTER
-=========================== */
+.btn:hover::after {
+    opacity: 1;
+}
+
+.btn-youtube {
+    background: #ff0000;
+    border-color: #ff0000;
+    box-shadow: 0 0 14px rgba(255, 0, 0, 0.45);
+}
+
+.btn-youtube:hover {
+    box-shadow: 0 0 24px rgba(255, 0, 0, 0.75);
+}
+
+.btn-twitch {
+    background: #9146ff;
+    border-color: #9146ff;
+    box-shadow: 0 0 14px rgba(145, 70, 255, 0.45);
+}
+
+.btn-twitch:hover {
+    box-shadow: 0 0 24px rgba(145, 70, 255, 0.75);
+}
+
+/* ── 13. ICONOS SOCIALES (SECCIÓN REDES) ─────────────── */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 22px;
+    flex-wrap: wrap;
+}
+
+.social-icons a {
+    font-size: 44px;
+    text-decoration: none;
+    transition:
+        transform var(--t-mid),
+        filter var(--t-mid);
+}
+
+.social-icons a:hover {
+    transform: scale(1.15) translateY(-4px);
+}
+
+/* Colores de marca de cada red */
+.twitch i {
+    color: #9146ff;
+}
+.youtube i {
+    color: #ff0000;
+}
+.tiktok i {
+    color: #69c9d0;
+}
+.instagram i {
+    color: #e1306c;
+}
+
+.social-icons .twitch:hover i {
+    filter: drop-shadow(0 0 10px #9146ff);
+}
+.social-icons .youtube:hover i {
+    filter: drop-shadow(0 0 10px #ff0000);
+}
+.social-icons .tiktok:hover i {
+    filter: drop-shadow(0 0 10px #69c9d0);
+}
+.social-icons .instagram:hover i {
+    filter: drop-shadow(0 0 10px #e1306c);
+}
+
+/* Sidebar: colores al hover */
+.sidebar-icons .twitch:hover {
+    color: #9146ff;
+}
+.sidebar-icons .youtube:hover {
+    color: #ff0000;
+}
+.sidebar-icons .tiktok:hover {
+    color: #69c9d0;
+}
+.sidebar-icons .instagram:hover {
+    color: #e1306c;
+}
+
+.sidebar-icons .twitch i {
+    color: #9146ff;
+}
+.sidebar-icons .youtube i {
+    color: #ff0000;
+}
+.sidebar-icons .tiktok i {
+    color: #69c9d0;
+}
+.sidebar-icons .instagram i {
+    color: #e1306c;
+}
+
+/* ── 14. TABLA HORARIO ────────────────────────────────── */
+#horario {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+#horario th {
+    color: var(--c-green);
+    padding: 12px 14px;
+    border-bottom: 2px solid var(--c-yellow);
+    text-shadow: 0 0 6px var(--rgba-green-60);
+    text-align: left;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+}
+
+#horario td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--rgba-blue-12);
+    color: var(--txt-primary);
+    font-size: 0.95rem;
+    transition:
+        background var(--t-fast),
+        color var(--t-fast);
+}
+
+#horario tr:hover td {
+    background: var(--rgba-blue-12);
+    color: var(--c-yellow);
+}
+
+/* ── 15. FOOTER ───────────────────────────────────────── */
 .footer {
     text-align: center;
     margin-top: 40px;
-    padding: 20px;
-    color: #888;
-    font-size: 0.9rem;
-    border-top: 1px solid #1f1f1f;
+    padding: 24px 20px;
+    color: var(--txt-muted);
+    font-size: 0.875rem;
+    border-top: 1px solid var(--border-faint);
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
-@media (max-width: 768px) {
+.footer p + p {
+    margin-top: 4px;
+}
 
-    .container {
-        flex-direction: column;
-    }
+/* ── 16. BOTÓN HAMBURGUESA ────────────────────────────── */
+.hamburger {
+    display: none; /* Solo visible en móvil */
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 1100;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    width: 46px;
+    height: 46px;
+    padding: 11px;
+    background: rgba(6, 6, 20, 0.92);
+    border: 1px solid var(--c-green);
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: var(--shadow-green);
+    transition:
+        background var(--t-fast),
+        box-shadow var(--t-fast);
+}
 
-    .sidebar {
-        width: 100%;
-        height: auto;
-        padding: 10px 0;
-        box-shadow: 0 2px 8px rgba(0,255,0,0.35);
-        z-index: 999;
-    }
+.hamburger:hover {
+    background: rgba(57, 255, 20, 0.1);
+    box-shadow: 0 0 16px var(--rgba-green-60);
+}
 
-    .sidebar nav {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--c-green);
+    border-radius: 2px;
+    box-shadow: 0 0 6px var(--c-green);
+    transition:
+        transform var(--t-mid),
+        opacity var(--t-mid);
+    transform-origin: center;
+}
 
-    .sidebar a {
-        padding: 6px 10px;
-        font-size: 0.9rem;
-    }
+/* Animación de X al abrir el menú */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
 
-    .sidebar-icons {
-        flex-direction: row !important;
-        justify-content: center !important;
-        gap: 20px !important;
-        margin-top: 10px !important;
-    }
+/* ── 17. OVERLAY MÓVIL ────────────────────────────────── */
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.78);
+    z-index: 700;
+    opacity: 0;
+    transition: opacity var(--t-mid);
+}
 
-    .sidebar-icons a {
-        font-size: 26px !important;
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* ── 18. RESPONSIVE — TABLET ──────────────────────────── */
+@media (max-width: 900px) {
+    :root {
+        --sidebar-w: 200px;
     }
 
     .content {
+        padding: 20px 20px;
+    }
+}
+
+/* ── 19. RESPONSIVE — MÓVIL ───────────────────────────── */
+@media (max-width: 768px) {
+    /* Mostrar hamburguesa */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Sidebar como drawer oculto por defecto */
+    .sidebar {
+        width: 280px;
+        transform: translateX(-100%);
+        z-index: 900;
+        padding-top: 68px; /* Espacio para no tapar el botón hamburguesa */
+        box-shadow: 4px 0 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    /* Sidebar abierto: borde derecho brillante */
+    .sidebar.open {
+        border-right-color: var(--rgba-green-25);
+        box-shadow:
+            4px 0 40px rgba(0, 0, 0, 0.8),
+            4px 0 20px var(--rgba-green-12);
+    }
+
+    /* Contenido ocupa todo el ancho */
+    .content {
         margin-left: 0;
-        margin-top: 140px;
+        padding: 72px 16px 20px; /* Margen superior para el botón flotante */
+    }
+
+    /* Secciones más compactas */
+    section {
+        padding: 20px 16px;
+        border-radius: 8px;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .logo {
+        width: 150px;
+    }
+    .foto {
+        max-width: 100%;
+    }
+
+    .social-icons {
+        gap: 18px;
+    }
+    .social-icons a {
+        font-size: 36px;
+    }
+
+    #horario th,
+    #horario td {
+        padding: 9px 10px;
+        font-size: 0.88rem;
+    }
+}
+
+/* ── 20. RESPONSIVE — MÓVIL PEQUEÑO ──────────────────── */
+@media (max-width: 480px) {
+    .botones-principales {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .social-icons {
+        gap: 14px;
+    }
+
+    .social-icons a {
+        font-size: 30px;
+    }
+
+    section {
+        padding: 16px 14px;
     }
 }
