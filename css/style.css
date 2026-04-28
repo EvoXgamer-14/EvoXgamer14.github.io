@@ -499,6 +499,9 @@ img {
 .instagram i {
     color: #e1306c;
 }
+.discord i {
+    color: #5865f2;
+}
 
 .social-icons .twitch:hover i {
     filter: drop-shadow(0 0 10px #9146ff);
@@ -511,6 +514,9 @@ img {
 }
 .social-icons .instagram:hover i {
     filter: drop-shadow(0 0 10px #e1306c);
+}
+.social-icons .discord:hover i {
+    filter: drop-shadow(0 0 10px #5865f2);
 }
 
 /* Sidebar: colores al hover */
@@ -526,6 +532,9 @@ img {
 .sidebar-icons .instagram:hover {
     color: #e1306c;
 }
+.sidebar-icons .discord:hover {
+    color: #5865f2;
+}
 
 .sidebar-icons .twitch i {
     color: #9146ff;
@@ -538,6 +547,9 @@ img {
 }
 .sidebar-icons .instagram i {
     color: #e1306c;
+}
+.sidebar-icons .discord i {
+    color: #5865f2;
 }
 
 /* ── 14. TABLA HORARIO ────────────────────────────────── */
